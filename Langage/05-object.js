@@ -174,3 +174,18 @@ for (var cle in coords3d1) {
     console.log(coords3d1[cle]);
   }
 }
+
+
+// JSON
+// clé entre quotes
+// valeurs possibles
+// primitifs: boolean, number, string (quotes only)
+// syntaxes litérales : array [], object {}, regexp /[a-z]/
+// pas de méthodes et pas de type
+
+const json = JSON.stringify(coords2d);
+
+// .... réseau ......
+
+const obj = JSON.parse(json);
+console.log(obj.x); // 10
