@@ -1,24 +1,7 @@
-const Random = {
-  // 1 - Method properties
-  get() {
-    return Math.random();
-  },
-  getArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-  },
-  getInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-  },
-  getIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
-  },
-};
+'use strict';
 
 const readline = require('readline');
+const Random = require('./random');
 
 // 2 - class
 class Jeu {
@@ -74,6 +57,4 @@ class Jeu {
   }
 }
 
-
-const jeu = new Jeu();
-jeu.jouer();
+module.exports = Jeu;

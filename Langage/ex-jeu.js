@@ -74,9 +74,3 @@ jouer();
 // +-------------------------------------------ENTREE--> temps
 // sortie :                 Quel es    Fin        Thank you
 //
-// file d'attente (0s) :
-// file d'attente (500ms) : cb1 - cb3
-// file d'attente (501ms) : cb3
-// file d'attente (502ms) :
-// file d'attente (1000ms) : cb2
-// file d'attente (1001ms) :
