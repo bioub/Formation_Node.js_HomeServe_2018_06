@@ -1,6 +1,6 @@
 const assert = require('assert'); // dans node.exe (binaire)
-const piece = require('./pile-ou-face'); // mon fichier
 const chalk = require('chalk'); // dans node_modules
+const piece = require('./pile-ou-face'); // mon fichier
 
 try {
   // pileOuFace

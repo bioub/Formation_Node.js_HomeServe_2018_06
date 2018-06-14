@@ -14,6 +14,12 @@
 		},
 		{
 			"path": "Webpack"
+		},
+		{
+			"path": "NodeWeb"
+		},
+		{
+			"path": "AddressBookRest"
 		}
 	],
 	"settings": {}

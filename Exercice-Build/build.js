@@ -3,6 +3,7 @@ const path = require('path');
 const del = require('del');
 const md5 = require('md5');
 const UglifyJS = require('uglify-es');
+const minimist = require('minimist');
 
 const distPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
@@ -11,6 +12,8 @@ const indexJsPath = path.resolve(srcPath, 'js', 'index.js');
 const indexHtmlPath = path.resolve(srcPath, 'index.html');
 const indexHtmlDistPath = path.resolve(distPath, 'index.html');
 const appJsDistPath = path.resolve(distPath, 'app.js');
+
+const argv = minimist(process.argv.slice(2));
 
 async function removeAndCreateDist() {
   await fs.remove(distPath);
@@ -24,9 +27,13 @@ async function buildJs() {
     fs.readFile(indexJsPath),
   ]);
 
-  for (const buffer of buffers) {
-    await fs.appendFile(appJsDistPath, buffer);
+  let content = buffers.reduce((acc, buffer) => acc + buffer.toString(), '');
+
+  if (argv.minify) {
+    content = UglifyJS.minify(content).code;
   }
+
+  await fs.appendFile(appJsDistPath, content);
   console.log('js built');
 }
 
