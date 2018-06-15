@@ -17,4 +17,13 @@ router.get('/:id',
   ctrl.show,
 );
 
+router.delete('/:id',
+  ctrl.remove,
+);
+
+router.patch('/:id',
+  bodyParser.json(),
+  ctrl.update,
+);
+
 module.exports = router;

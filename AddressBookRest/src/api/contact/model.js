@@ -1,3 +1,35 @@
+const mongoose = require('mongoose');
+
+const schema = new mongoose.Schema({
+  prenom: {
+    required: true,
+    type: String,
+  },
+  nom: {
+    required: true,
+    type: String,
+  },
+  email: String,
+  telephone: String,
+  societe: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Societe',
+  },
+  updated: { type: Date, default: Date.now },
+});
+
+
+// Exercice 1 : Ajouter delete et update aux contacts
+// créer les routes et les controllers
+
+// Exercice 2 : Ajouter un endpoints /api/societes
+// créer les routes list et show
+// utiliser populate pour afficher les contacts et leur société
+
+
+module.exports = mongoose.model('Contact', schema);
+
+/*
 const contacts = [
   {
     id: '123',
@@ -28,3 +60,4 @@ module.exports = class ContactModel {
     return Promise.resolve(contact);
   }
 }
+*/

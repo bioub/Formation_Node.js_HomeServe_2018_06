@@ -26,7 +26,7 @@ server.on('error', (err) => {
   console.log(err);
 });
 
-server.on('listening', () => {
+server.once('listening', () => {
   console.log('Server started : http://localhost:8080/');
 });
 
